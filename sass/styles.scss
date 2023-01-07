@@ -21,6 +21,7 @@ body{
     width: 375px;
     border: 1px solid red;
     margin: auto;
+    position: relative;
     @media (min-width: 1115px) {
             width: 1115px;
     }

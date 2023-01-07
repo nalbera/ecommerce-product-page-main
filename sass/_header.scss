@@ -56,9 +56,20 @@
             text-align: center;
             font-style: bold;
         }
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     &__avatar{
         width: 28px;
+        @media (min-width: 1115px) {
+            width: 48px;
+        }
+        &:hover{
+            cursor: pointer;
+            border: 2px solid variables.$Orange;
+            border-radius: 50%;
+        }  
     }
 }
