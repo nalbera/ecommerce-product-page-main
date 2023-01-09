@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
-/*(with 75% opacity for lightbox background)*/
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"); /*(with 75% opacity for lightbox background)*/
 .header {
   display: flex;
   align-items: center;
@@ -104,6 +103,7 @@
 }
 
 .modal-navbar {
+  display: none;
   background-color: hsl(0deg, 0%, 100%);
   width: 250px;
   height: 100%;
@@ -157,6 +157,11 @@
 .gallery__previous:hover {
   cursor: pointer;
 }
+@media (min-width: 1115px) {
+  .gallery__previous {
+    display: none;
+  }
+}
 .gallery__next {
   background-color: hsl(0deg, 0%, 100%);
   width: 40px;
@@ -170,17 +175,41 @@
 .gallery__next:hover {
   cursor: pointer;
 }
+@media (min-width: 1115px) {
+  .gallery__next {
+    display: none;
+  }
+}
 .gallery__thumnails {
   display: none;
 }
 @media (min-width: 1115px) {
   .gallery__thumnails {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.gallery__thumnail {
+  width: 90px;
+  border-radius: 16px;
+}
+.gallery__thumnail:hover {
+  cursor: pointer;
+  border: 2px solid hsl(26deg, 100%, 55%);
+}
+@media (min-width: 1115px) {
+  .gallery {
+    width: 446px;
+  }
+  .gallery__image-container {
+    border-radius: 16px;
+    height: 446px;
+    margin-bottom: 32px;
+    background-position-y: 0;
   }
 }
 
 .details {
-  border: 1px solid blue;
   padding: 24px;
 }
 .details__company {
@@ -242,6 +271,28 @@
 .details__button:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+@media (min-width: 1115px) {
+  .details {
+    padding-top: 60px;
+    width: 446px;
+  }
+  .details__title {
+    font-size: 2.7em;
+    margin-bottom: 48px;
+  }
+  .details__description {
+    font-size: 0.9em;
+    margin-bottom: 37px;
+  }
+  .details__prices {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .details__product-quantity {
+    display: flex;
+    gap: 32px;
+  }
 }
 
 .input {
@@ -329,6 +380,90 @@
   opacity: 0.5;
 }
 
+.modal-gallery {
+  width: 550px;
+}
+.modal-gallery__backgroud {
+  background-color: hsla(0deg, 0%, 0%, 0.719);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  place-content: center;
+}
+.modal-gallery__close-container {
+  text-align: right;
+}
+.modal-gallery__close {
+  width: 16px;
+}
+.modal-gallery__close:hover {
+  cursor: pointer;
+  content: url("../images/icon-close-orange.svg");
+}
+.modal-gallery__image-container {
+  background-image: url("../images/image-product-1.jpg");
+  height: 446px;
+  background-size: cover;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.modal-gallery__thumnails {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: auto;
+}
+.modal-gallery__thumnail {
+  width: 90px;
+  border-radius: 16px;
+}
+.modal-gallery__thumnail:hover {
+  cursor: pointer;
+  border: 2px solid hsl(26deg, 100%, 55%);
+}
+.modal-gallery__previous {
+  background-color: hsl(0deg, 0%, 100%);
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 190px;
+  left: -15px;
+}
+.modal-gallery__previous:hover {
+  cursor: pointer;
+}
+@media (min-width: 1115px) {
+  .modal-gallery__previous {
+    display: block;
+  }
+}
+.modal-gallery__next {
+  background-color: hsl(0deg, 0%, 100%);
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 190px;
+  left: 425px;
+}
+.modal-gallery__next:hover {
+  cursor: pointer;
+}
+@media (min-width: 1115px) {
+  .modal-gallery__next {
+    display: block;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -341,13 +476,20 @@ body {
 
 .main-container {
   width: 375px;
-  border: 1px solid red;
   margin: auto;
   position: relative;
 }
 @media (min-width: 1115px) {
   .main-container {
     width: 1115px;
+  }
+}
+
+@media (min-width: 1115px) {
+  .content {
+    display: flex;
+    padding: 90px 50px;
+    gap: 124px;
   }
 }
 
