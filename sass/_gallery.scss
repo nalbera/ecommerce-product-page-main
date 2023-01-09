@@ -10,10 +10,10 @@
         width: 100%;
     }
     &__previous{
-        @include mixins.image-btn(200px, 15px);
+        @include mixins.image-btn(200px, 15px, false);
     }
     &__next{
-        @include mixins.image-btn(200px, 320px);
+        @include mixins.image-btn(200px, 320px, false);
     }
     &__thumnails{
         display: none;
