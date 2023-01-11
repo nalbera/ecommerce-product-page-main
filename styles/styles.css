@@ -207,6 +207,9 @@
     margin-bottom: 32px;
     background-position-y: 0;
   }
+  .gallery:hover {
+    cursor: pointer;
+  }
 }
 
 .details {
@@ -343,7 +346,7 @@
   padding: 24px;
 }
 .cart-modal__details-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;

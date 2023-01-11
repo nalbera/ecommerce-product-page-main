@@ -20,7 +20,8 @@
         padding: 24px;
     }
     &__details-container{
-        display: flex;
+        display: none;
+        //display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 24px;
