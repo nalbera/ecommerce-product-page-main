@@ -7,12 +7,15 @@ window.addEventListener('load', () => {
     const imgCart = document.querySelector('.header__imgCart');
     const cartModal = document.querySelector('.cart-modal');
     const modalPrice = document.querySelector('.cart-modal__price');
-    const modalTotal = document.querySelector('.cart-modal__price span');
     const displayModalDetail = document.querySelector('.cart-modal__details-container');
     const cartNotification = document.querySelector('.header__cart--notification');
+    const btnDelete = document.querySelector('.cart-modal__icon-delete')
+    const imageContiner = document.querySelector('.gallery__image-container');
 
     let viewModal = true;
     let cont = 0;
+    let total = 0;
+    const id = 0;
     btnMinus.addEventListener('click', () => {
         if(cont > 0){
             cont--;
@@ -26,12 +29,13 @@ window.addEventListener('load', () => {
     });
 
     btnAddToCart.addEventListener('click', () => {
-        cartNotification.innerHTML= cont;
-        cartNotification.style.display='block';
-        // let total = 125 * parseInt(inputNumber.value);
-        // modalPrice.innerHTML=`$125.00 x ${inputNumber.value}`;
-        // modalTotal.innerHTML = `${total}`;
-        // displayModalDetail.style.display = 'flex';
+        if(cont>0){
+            cartNotification.innerHTML= cont;
+            cartNotification.style.display='block';
+            total = 125 * parseInt(inputNumber.value);
+            modalPrice.innerHTML=`$125.00 x ${inputNumber.value}<span> $${total}</span>`;
+            displayModalDetail.style.display = 'flex';
+        }
     });
 
     imgCart.addEventListener('click', () => {
@@ -43,4 +47,15 @@ window.addEventListener('load', () => {
             viewModal = true;
         }
     });
+
+    btnDelete.addEventListener('click', () => {
+        cont = 0;
+        cartNotification.style.display='none';
+        total = 0;
+        displayModalDetail.style.display = 'none';
+    });
 });
+
+const changeImage = (numberImg) => {
+
+};
