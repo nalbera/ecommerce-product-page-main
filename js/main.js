@@ -57,5 +57,5 @@ window.addEventListener('load', () => {
 });
 
 const changeImage = (numberImg) => {
-
+    
 };
