@@ -11,6 +11,8 @@ window.addEventListener('load', () => {
     const cartNotification = document.querySelector('.header__cart--notification');
     const btnDelete = document.querySelector('.cart-modal__icon-delete')
     const imageContiner = document.querySelector('.gallery__image-container');
+    const modalGallery = document.querySelector('.modal-gallery__backgroud');
+    const modalClose = document.querySelector('.modal-gallery__close');
 
     let viewModal = true;
     let cont = 0;
@@ -27,7 +29,7 @@ window.addEventListener('load', () => {
             cont++;
             inputNumber.value = cont;
     });
-
+    
     btnAddToCart.addEventListener('click', () => {
         if(cont>0){
             cartNotification.innerHTML= cont;
@@ -37,7 +39,7 @@ window.addEventListener('load', () => {
             displayModalDetail.style.display = 'flex';
         }
     });
-
+    
     imgCart.addEventListener('click', () => {
         if(viewModal){
             cartModal.style.display = 'block';
@@ -53,6 +55,13 @@ window.addEventListener('load', () => {
         cartNotification.style.display='none';
         total = 0;
         displayModalDetail.style.display = 'none';
+    });
+
+    imageContiner.addEventListener('click', () => {
+        modalGallery.style.display = 'grid';
+    });
+    modalClose.addEventListener('click', () => {
+        modalGallery.style.display = 'none';
     });
 });
 
