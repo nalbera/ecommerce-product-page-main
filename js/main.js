@@ -1,4 +1,12 @@
+
 window.addEventListener('load', () => {
+    
+    const images = [
+        '../images/image-product-1.jpg',
+        '../images/image-product-2jpg',
+        '../images/image-product-3.jpg',
+        '../images/image-product-4.jpg',
+    ];
     
     const btnMinus = document.querySelector('.input__minus');
     const btnPlus = document.querySelector('.input__plus');
@@ -12,7 +20,10 @@ window.addEventListener('load', () => {
     const btnDelete = document.querySelector('.cart-modal__icon-delete')
     const imageContiner = document.querySelector('.gallery__image-container');
     const modalGallery = document.querySelector('.modal-gallery__backgroud');
+    const modalGaleryImage = document.querySelector('.modal-gallery__image-container')
     const modalClose = document.querySelector('.modal-gallery__close');
+    let thumbnails = document.querySelectorAll('.gallery__thumnail');
+    let thumbnailsModal = document.querySelectorAll('.modal-gallery__thumnails');
 
     let viewModal = true;
     let cont = 0;
@@ -63,7 +74,30 @@ window.addEventListener('load', () => {
     modalClose.addEventListener('click', () => {
         modalGallery.style.display = 'none';
     });
+
+    //console.log(thumbnails); es un NodeList
+    //convierto el nodelist en array
+    thumbnails = [...thumbnails];
+    thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener('click', (event) => {
+            imageContiner.style.backgroundImage = `url('../images/image-product-${event.target.id}.jpg')`;
+        });
+    })
+
+    thumbnailsModal = [...thumbnailsModal];
+    thumbnailsModal.forEach((thumbnail) => {
+        thumbnail.addEventListener('click', (event) => {
+            modalGaleryImage.style.backgroundImage = `url('../images/image-product-${event.target.id.slice(-1)}.jpg')`;
+        })
+    })
+
+
 });
+
+
+
+
+
 
 const changeImage = (numberImg) => {
     
